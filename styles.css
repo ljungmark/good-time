@@ -2,20 +2,20 @@
     font-family: 'Inter';
     font-display: swap;
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 100;
     src: url('Inter.woff2') format('woff2');
 }
 html,
 body {
     align-items: center;
     display: grid;
-    font: 400 15px / 1.6em Inter, system-ui, sans-serif;
     height: 100vh;
     justify-items: center;
     margin: 0;
     width: 100vw;
 }
 body {
-    background: hsl(0deg 0% 10% / 100%);
-    color:hsl(0deg 0% 98% / 100%);
+    background: hsl(0deg 0% 8% / 100%);
+    color: hsl(0deg 0% 98% / 100%);
+    font: 100 calc(22pt + 4vw) / 1.6em Inter, system-ui, sans-serif;
 }
