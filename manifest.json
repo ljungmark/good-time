@@ -1,0 +1,9 @@
+{
+  "name": "Good time",
+  "version": "1.0",
+  "description": "Minimal timepiece for the modern human",
+  "manifest_version": 2,
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  }
+}
