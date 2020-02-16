@@ -12,10 +12,11 @@ body {
     height: 100vh;
     justify-items: center;
     margin: 0;
+    user-select: none;
     width: 100vw;
 }
 body {
     background: hsl(0deg 0% 8% / 100%);
     color: hsl(0deg 0% 98% / 100%);
-    font: 100 calc(22pt + 4vw) / 1.6em Inter, system-ui, sans-serif;
+    font: 100 calc(22pt + 4vw) / 1em Inter, system-ui, sans-serif;
 }
