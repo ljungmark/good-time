@@ -5,6 +5,14 @@
     font-weight: 100;
     src: url('Inter.woff2') format('woff2');
 }
+:root[data-theme="dark"] {
+    --background: hsl(0deg 0% 8% / 100%);
+    --color: hsl(0deg 0% 98% / 100%);
+}
+:root[data-theme="light"] {
+    --background: hsl(230deg 9% 86% / 100%);
+    --color: hsl(230deg 5% 18% / 100%);
+}
 html,
 body {
     align-items: center;
@@ -15,8 +23,12 @@ body {
     user-select: none;
     width: 100vw;
 }
+html {
+    opacity: 1;
+    visibility: visible;
+}
 body {
-    background: hsl(0deg 0% 8% / 100%);
-    color: hsl(0deg 0% 98% / 100%);
+    background: var(--background);
+    color: var(--color);
     font: 100 calc(22pt + 4vw) / 1em Inter, system-ui, sans-serif;
 }
