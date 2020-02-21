@@ -5,6 +5,18 @@
     font-weight: 100;
     src: url('Inter.woff2') format('woff2');
 }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: hsl(0deg 0% 8% / 100%);
+        --color: hsl(0deg 0% 98% / 100%);
+    }
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: hsl(0deg 0% 96% / 100%);
+        --color: hsl(200deg 10% 26% / 100%);
+    }
+}
 html,
 body {
     align-items: center;
@@ -16,7 +28,7 @@ body {
     width: 100vw;
 }
 body {
-    background: hsl(0deg 0% 8% / 100%);
-    color: hsl(0deg 0% 98% / 100%);
+    background: var(--background-color);
+    color: var(--color);
     font: 100 calc(22pt + 4vw) / 1em Inter, system-ui, sans-serif;
 }
