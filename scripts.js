@@ -1,5 +1,4 @@
 (function update() {
-    const date = new Date();
-    document.querySelector('time').innerHTML = `${("00" + date.getHours()).slice(-2)}:${("00" + date.getMinutes()).slice(-2)}`;
+    document.querySelector('time').innerHTML = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     setTimeout(update, 60000 - (Date.now() % 60000));
 })();
