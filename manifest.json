@@ -13,6 +13,7 @@
   "permissions": [
     "storage"
   ],
+  "web_accessible_resources": ["*.woff2"],
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "chrome_url_overrides" : {
     "newtab": "index.html"
