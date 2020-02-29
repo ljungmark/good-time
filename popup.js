@@ -17,3 +17,13 @@ chrome.storage.onChanged.addListener(_ => {
         document.querySelector('.hour12').checked = result.hour12;
     });
 });
+
+/* Store new preference */
+document.querySelectorAll('.theme').forEach(element => element.addEventListener('change', element => {
+    console.log('changed')
+    console.log(element.srcElement.value)
+    chrome.storage.sync.set({
+        'theme': element.srcElement.value
+    }, function () {
+    });
+}));
