@@ -16,14 +16,20 @@ chrome.storage.onChanged.addListener(_ => {
     chrome.storage.sync.get(['hour12'], function(result) {
         document.querySelector('.hour12').checked = result.hour12;
     });
+    chrome.storage.sync.get(['theme'], function(result) {
+        document.querySelector(`.theme[value="${result.theme}"]`).checked = true;
+    });
 });
 
-/* Store new preference */
+/* Store new theme preference */
 document.querySelectorAll('.theme').forEach(element => element.addEventListener('change', element => {
-    console.log('changed')
-    console.log(element.srcElement.value)
     chrome.storage.sync.set({
         'theme': element.srcElement.value
     }, function () {
     });
 }));
+
+/* Tick checkbox on load if it's stored in storage */
+chrome.storage.sync.get(['theme'], function(result) {
+    document.querySelector(`.theme[value="${result.theme}"]`).checked = true;
+});
