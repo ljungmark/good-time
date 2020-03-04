@@ -1,4 +1,4 @@
-/* Store new preference */
+/* Store "Force 12 hour clock" preference */
 document.querySelector('.hour12').addEventListener('change', _ => {
     chrome.storage.sync.set({
         'hour12': document.querySelector('.hour12').checked
@@ -21,7 +21,7 @@ chrome.storage.onChanged.addListener(_ => {
     });
 });
 
-/* Store new theme preference */
+/* Store theme preference */
 document.querySelectorAll('.theme').forEach(element => element.addEventListener('change', element => {
     chrome.storage.sync.set({
         'theme': element.srcElement.value
@@ -33,7 +33,6 @@ document.querySelectorAll('.theme').forEach(element => element.addEventListener(
 chrome.storage.sync.get(['theme'], function(result) {
     document.querySelector(`.theme[value="${result.theme}"]`).checked = true;
 });
-
 
 /** LOCALE */
 const LOCALES = {
@@ -480,3 +479,12 @@ for (let [value, key] of Object.entries(LOCALES)) {
     const time = new Date().toLocaleTimeString(value, { hour: '2-digit', minute: '2-digit' });
     localeSelect.options.add(new Option(`${key} (${time})`, `${value}`));
 }
+new SlimSelect({
+    select: '.locale',
+    onChange: (data) => {
+        chrome.storage.sync.set({
+            'locale': data.value
+        }, function () {
+        });
+    }
+});
