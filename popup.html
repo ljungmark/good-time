@@ -7,14 +7,17 @@
     <h1>Good times</h1>
     <h2>Preferences</h2>
     <hr>
-    <label><input class="hour12" type="checkbox"> Use 12 hour clock</label>
+    Show time in...
+    <select class="locale" name="locale">
+    </select>
+    <label><input class="hour12" type="checkbox"> Force 12 hour clock</label>
     <h2>Color Theme</h2>
     <hr>
     <label>
         <input class="theme" type="radio" name="theme" value="automatic">
         <div class="text">
             <h3 class="option">Automatic</h3>
-            <p class="details">Will inherit your system setting.</p>
+            <p class="details">Will inherit your preferences from the operating system.</p>
         </div>
     </label>
     <label>
