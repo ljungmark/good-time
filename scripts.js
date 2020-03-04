@@ -1,23 +1,16 @@
 /* Render current time */
 (update = function update() {
-    chrome.storage.sync.get(['hour12', 'locale'], function(result) {
-        if (result.hour12 === undefined) {
-            chrome.storage.sync.set({
-                'hour12': (new Date().toLocaleString().includes("M") ? true : false)
-            }, function () {
-            });
-        }
-
+    chrome.storage.sync.get(['locale'], function(result) {
         const locale = result.locale === undefined ? [] : result.locale;
 
-        document.querySelector('time').innerHTML = new Date().toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit', hour12: result.hour12 });
+        document.querySelector('time').innerHTML = new Date().toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
         setTimeout(update, 60000 - (Date.now() % 60000));
     });
 })();
 
 /* When preference is updated, update the time */
 chrome.storage.onChanged.addListener(_ => {
-    chrome.storage.sync.get(['hour12', 'theme', 'locale'], function(result) {
+    chrome.storage.sync.get(['theme', 'locale'], function(result) {
         update();
 
         document.querySelector('html').dataset.theme = (result.theme === 'automatic') ? themeSystemPreference() : result.theme;
