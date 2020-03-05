@@ -1,3 +1,5 @@
+let locale = null;
+
 /* Reflect changes made through popup in other tabs */
 chrome.storage.onChanged.addListener(_ => {
     chrome.storage.sync.get(['theme'], function(result) {
@@ -13,9 +15,31 @@ document.querySelectorAll('.theme').forEach(element => element.addEventListener(
     });
 }));
 
-/* Tick checkbox on load if it's stored in storage */
-chrome.storage.sync.get(['theme'], function(result) {
+/* Load correct visual representation of preferences */
+chrome.storage.sync.get(['theme', 'locale'], function(result) {
     document.querySelector(`.theme[value="${result.theme}"]`).checked = true;
+    locale = result.locale === undefined ? null : result.locale;
+    console.log('locale: ' + locale);
+
+    const localeSelect = document.querySelector('.locale');
+    for (let [key, value] of Object.entries(LOCALES)) {
+        const time = new Date().toLocaleTimeString(key, { hour: '2-digit', minute: '2-digit' });
+        const selected = (locale !== null && locale === key) ? true : false;
+
+        localeSelect.options.add(new Option(`${value} (${time})`, `${key}`, selected));
+    }
+
+    const localeSlimSelect = new SlimSelect({
+        select: '.locale',
+        onChange: (data) => {
+            chrome.storage.sync.set({
+                'locale': data.value
+            }, function () {
+            });
+        }
+    });
+
+    localeSlimSelect.set(locale);
 });
 
 /** LOCALE */
@@ -457,18 +481,3 @@ const LOCALES = {
     "zu-ZA": "Zulu (South Africa)",
     "zu": "Zulu"
 }
-
-const localeSelect = document.querySelector('.locale');
-for (let [value, key] of Object.entries(LOCALES)) {
-    const time = new Date().toLocaleTimeString(value, { hour: '2-digit', minute: '2-digit' });
-    localeSelect.options.add(new Option(`${key} (${time})`, `${value}`));
-}
-new SlimSelect({
-    select: '.locale',
-    onChange: (data) => {
-        chrome.storage.sync.set({
-            'locale': data.value
-        }, function () {
-        });
-    }
-});
