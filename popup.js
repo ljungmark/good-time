@@ -19,7 +19,6 @@ document.querySelectorAll('.theme').forEach(element => element.addEventListener(
 chrome.storage.sync.get(['theme', 'locale'], function(result) {
     document.querySelector(`.theme[value="${result.theme}"]`).checked = true;
     locale = result.locale === undefined ? null : result.locale;
-    console.log('locale: ' + locale);
 
     const localeSelect = document.querySelector('.locale');
     for (let [key, value] of Object.entries(LOCALES)) {
