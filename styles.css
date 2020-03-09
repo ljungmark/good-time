@@ -1,6 +1,5 @@
 @font-face {
     font-family: 'Inter';
-    font-display: swap;
     font-style: normal;
     font-weight: 100;
     src: url('Inter.woff2') format('woff2');
@@ -29,4 +28,9 @@ body {
     background: var(--background-color);
     color: var(--color);
     font: 100 calc(22pt + 4vw) / 1em Inter, system-ui, sans-serif;
+}
+
+html {
+    visibility: visible;
+    opacity: 1;
 }
