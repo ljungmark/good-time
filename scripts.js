@@ -13,7 +13,7 @@ chrome.storage.onChanged.addListener(_ => {
     chrome.storage.sync.get(['theme', 'locale'], function(result) {
         update();
 
-        document.querySelector('html').dataset.theme = (result.theme === 'automatic') ? themeSystemPreference() : result.theme;
+        document.querySelector('html').dataset.theme = (result.theme === undefined || result.theme === 'automatic') ? themeSystemPreference() : result.theme;
     });
 });
 
@@ -28,13 +28,6 @@ function themeSystemPreference() {
 /* Listen to system changes */
 window.matchMedia('(prefers-color-scheme: dark)').addListener(_ => {
     chrome.storage.sync.get(['theme'], function(result) {
-        if (result.theme === undefined) {
-            chrome.storage.sync.set({
-                'theme': 'automatic'
-            }, function () {
-            });
-        }
-
         document.querySelector('html').dataset.theme = (result.theme === undefined || result.theme === 'automatic') ? themeSystemPreference() : result.theme;
     });
 });
