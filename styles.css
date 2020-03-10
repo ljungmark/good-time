@@ -14,23 +14,20 @@
     --color: hsl(200deg 10% 26% / 100%);
 }
 
-html,
 body {
     align-items: center;
+    background: var(--background-color);
+    color: var(--color);
     display: grid;
+    font: 100 calc(22pt + 4vw) / 1em Inter, system-ui, sans-serif;
     height: 100vh;
     justify-items: center;
     margin: 0;
     user-select: none;
     width: 100vw;
 }
-body {
-    background: var(--background-color);
-    color: var(--color);
-    font: 100 calc(22pt + 4vw) / 1em Inter, system-ui, sans-serif;
-}
 
+/* FOUC */
 html {
     visibility: visible;
-    opacity: 1;
 }
