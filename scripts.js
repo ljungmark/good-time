@@ -10,7 +10,7 @@
 
 /* When preference is updated, update the time */
 chrome.storage.onChanged.addListener(_ => {
-    chrome.storage.sync.get(['theme', 'locale'], function(result) {
+    chrome.storage.sync.get(['theme'], function(result) {
         update();
 
         document.querySelector('html').dataset.theme = (result.theme === undefined || result.theme === 'automatic') ? themeSystemPreference() : result.theme;
