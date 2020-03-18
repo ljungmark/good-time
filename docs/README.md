@@ -12,9 +12,15 @@ By subtlety appearing when you open a new tab in your browser it allows you to f
 ## Features
 ### Adapt the timepiece to your language
 **Good Times** will adapt the clock to the language you have set in your browser. You can override this by explicitly selecting which language to base the formatting on through the *Preferences*.
+<p align="center">
+    <img src="singapore.png" width="48%"> <img src="uae.png" width="48%">
+</p>
 
 ### Light & Dark Mode support
 Has three modes:
 * **Automatic**: Inherits your preferences from your operating system.
 * **Dark**: Always use a dark color theme.
 * **Light**: Always use a light color theme.
+<p align="center">
+    <img src="dark.png" width="48%"> <img src="light.png" width="48%">
+</p>
