@@ -7,7 +7,7 @@
 }
 
 :root[data-theme="dark"] {
-    --background-color: hsl(0deg 0% 8% / 100%);
+    --background-color: hsl(216deg 12% 8% / 100%);
     --color: hsl(0deg 0% 98% / 100%);
 }
 :root[data-theme="light"] {
@@ -20,7 +20,7 @@ body {
     background: var(--background-color);
     color: var(--color);
     display: grid;
-    font: 100 calc(22pt + 4vw) / 1em Inter, system-ui, sans-serif;
+    font: 100 calc(22pt + 4vw) / 0.9 Inter, system-ui, sans-serif;
     height: 100vh;
     justify-items: center;
     margin: 0;
