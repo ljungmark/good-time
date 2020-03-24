@@ -5,35 +5,40 @@
     <link rel="stylesheet" href="slim-select.css">
     <link rel="stylesheet" href="popup.css?v=1.1">
 <body>
-    <h1>Good times</h1>
-    <h2>Preferences</h2>
-    <hr>
-    <p>Format time in...</p>
-    <select class="locale" name="locale">
-    </select>
-    <h2>Color Theme</h2>
-    <hr>
-    <label>
-        <input class="theme" type="radio" name="theme" value="automatic">
-        <div class="text">
-            <h3 class="option">Automatic</h3>
-            <p class="details">Will inherit your preferences from the operating system.</p>
-        </div>
-    </label>
-    <label>
-        <input class="theme" type="radio" name="theme" value="dark">
-        <div class="text">
-            <h3 class="option">Always Dark</h3>
-            <p class="details">Will always use a dark color theme.</p>
-        </div>
-    </label>
-    <label>
-        <input class="theme" type="radio" name="theme" value="light">
-        <div class="text">
-            <h3 class="option">Always Light</h3>
-            <p class="details">Will always use a light color theme.</p>
-        </div>
-    </label>
+    <h1>Settings</h1>
+    <section>
+        <h2>Format</h2>
+        <hr>
+        <p>Format time in...</p>
+        <select class="locale" name="locale">
+        </select>
+    </section>
+    <section>
+        <h2>Color Theme</h2>
+        <hr>
+        <label>
+            <input class="theme" type="radio" name="theme" value="automatic">
+            <div class="text">
+                <h3 class="option">Automatic</h3>
+                <p class="details">Inherits your preferences from the operating system.</p>
+            </div>
+        </label>
+        <label>
+            <input class="theme" type="radio" name="theme" value="dark">
+            <div class="text">
+                <h3 class="option">Always Dark</h3>
+                <p class="details">Always use a dark color theme.</p>
+            </div>
+        </label>
+        <label>
+            <input class="theme" type="radio" name="theme" value="light">
+            <div class="text">
+                <h3 class="option">Always Light</h3>
+                <p class="details">Always use a light color theme.</p>
+            </div>
+        </label>
+    </section>
+    <h4><a href="https://github.com/ljungmark/good-times" target="_blank">Good Times</a></h4>
     <script src="slim-select.js"></script>
     <script defer src="popup.js?v=1.1"></script>
 </body>
